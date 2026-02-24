@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+
+:root {
+  --topbar-color: #c74634;
+  --topbar-hover: #8a1f11;
+  --sidebar-bg: #1f2329;
+  --sidebar-active: rgba(199, 70, 52, 0.18);
+  --text-dark: #1f2937;
+  --text-muted: #6b7280;
+  --border-color: #d8dde4;
+  --canvas-color: #f6f7f9;
+  --shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.05);
+
+  --d365-primary: #c74634;
+  --d365-text-white: #ffffff;
+  --d365-text-primary: #1f2937;
+  --d365-text-secondary: #6b7280;
+  --d365-neutral-lightest: #f6f7f9;
+  --d365-neutral-lighter: #eceff3;
+  --d365-neutral-light: #f0f2f6;
+  --d365-neutral-tertiary: #cbd3dd;
+  --d365-neutral-secondary: #a9b3bf;
+  --d365-border: #d8dde4;
+  --d365-info-light: rgba(199, 70, 52, 0.12);
+  --d365-radius-sm: 8px;
+  --d365-radius-md: 12px;
+  --d365-shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.08);
+  --d365-transition: all 0.2s ease;
+  --d365-space-xs: 4px;
+  --d365-space-sm: 8px;
+  --d365-space-md: 12px;
+  --d365-space-lg: 16px;
+}
+
+body {
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  color: var(--text-dark);
+  background: radial-gradient(circle at top right, #eceff3, #f6f7f9 50%);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+* {
+  font-family: inherit;
+}
+
+button,
+input,
+select,
+textarea,
+.btn,
+.form-control,
+.form-select,
+.table,
+.card,
+.dropdown-menu,
+.dropdown-item {
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+}
+
+a {
+  color: var(--topbar-color);
+}
+
+a:hover {
+  color: var(--topbar-hover);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Bootstrap Customization */
+.btn {
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 4px 10px;
+  line-height: 1.1;
+}
+
+.btn-sm,
+.btn-group-sm > .btn {
+  font-size: 11px;
+  padding: 2px 8px;
+  line-height: 1.1;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.1rem rgba(10, 79, 143, 0.2);
+}
+.btn-primary {
+  background-color: var(--topbar-color);
+  border-color: var(--topbar-color);
+  border-radius: 2px;
+}
+
+.btn-primary:hover {
+  background-color: var(--topbar-hover);
+  border-color: var(--topbar-hover);
+}
+
+.btn-outline-primary {
+  color: var(--topbar-color);
+  border-color: var(--topbar-color);
+  border-radius: 2px;
+}
+
+.btn-secondary,
+.btn-outline-secondary {
+  border-radius: 2px;
+}
+
+.btn-danger,
+.btn-warning,
+.btn-success,
+.btn-info {
+  border-radius: 2px;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--topbar-hover);
+  border-color: var(--topbar-hover);
+}
+
+.text-primary {
+  color: var(--topbar-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--topbar-color) !important;
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  padding: 15px 20px;
+}
+
+/* Table Styles */
+.table {
+  --bs-table-bg: transparent;
+  background-color: transparent;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.table thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4b5563;
+  background: linear-gradient(180deg, #f1f4f8, #e8eef5);
+  border-bottom: 1px solid #cfd8e4;
+  border-top: 1px solid #d9e1eb;
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 6px 8px;
+  border-top: 1px solid #e1e8f0;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #fdf4f2;
+}
+
+.table-responsive {
+  border: 1px solid #d9e2ec;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Oracle Breadcrumb */
+.oracle-breadcrumb .breadcrumb {
+  background: linear-gradient(180deg, #ffffff, #f6f7fb);
+  border: 1px solid #d6dde8;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.oracle-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: #c74634;
+}
+
+.oracle-breadcrumb a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.oracle-breadcrumb a:hover {
+  color: #c74634;
+}
+
+/* Badge Styles */
+.badge {
+  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+/* Form Styles */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--topbar-color);
+  box-shadow: 0 0 0 0.12rem rgba(199, 70, 52, 0.18);
+}
+
+.form-control,
+.form-select {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  min-height: 28px;
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+}
+
+.form-control::placeholder {
+  color: #9aa4b2;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+}
+
+.input-group-text {
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background-color: #f5f7fa;
+  color: var(--text-muted);
+}
+
+/* Loading Spinner */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+}
+
+/* Animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Select2 (vue-select) Styling */
+.select2 .vs__dropdown-toggle {
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 4px 8px;
+  min-height: 28px;
+  background-color: #fff;
+}
+
+.select2 .vs__search,
+.select2 .vs__search:focus {
+  margin: 0;
+}
+
+.select2 .vs__selected {
+  color: var(--text-dark);
+}
+
+.select2 .vs__dropdown-menu {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+}
+
+.select2 .vs__dropdown-option--highlight {
+  background-color: var(--sidebar-active);
+  color: var(--text-dark);
+}
+
+.select2.is-invalid .vs__dropdown-toggle {
+  border-color: #dc3545;
+}

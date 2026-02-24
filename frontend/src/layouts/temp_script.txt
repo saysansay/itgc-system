@@ -1,0 +1,152 @@
+﻿<template>
+  <div class="main-layout">
+    <!-- Topbar -->
+    <nav class="topbar">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-link text-white me-3" @click="toggleSidebar">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+        <h4 class="mb-0 text-white">ITGC System</h4>
+      </div>
+      <div class="d-flex align-items-center">
+        <div class="dropdown">
+          <button class="btn btn-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle me-2"></i>
+            {{ user?.name }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="handleLogout">
+              <i class="bi bi-box-arrow-right me-2"></i>Logout
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="layout-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" :class="{ collapsed: sidebarCollapsed }">
+        <div class="sidebar-content">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <router-link to="/dashboard" class="nav-link" active-class="active">
+                <i class="bi bi-speedometer2 me-2"></i>
+                <span v-if="!sidebarCollapsed">Dashboard</span>
+              </router-link>
+            </li>
+            
+            <!-- Master Data -->
+            <li class="nav-header" v-if="!sidebarCollapsed">
+              <small class="text-muted">MASTER DATA</small>
+            </li>
+            <li class="nav-item">
+              <router-link to="/users" class="nav-link" active-class="active">
+                <i class="bi bi-people me-2"></i>
+                <span v-if="!sidebarCollapsed">Users</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/roles" class="nav-link" active-class="active">
+                <i class="bi bi-shield-check me-2"></i>
+                <span v-if="!sidebarCollapsed">Roles</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/systems" class="nav-link" active-class="active">
+                <i class="bi bi-hdd-network me-2"></i>
+                <span v-if="!sidebarCollapsed">Systems</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/departments" class="nav-link" active-class="active">
+                <i class="bi bi-building me-2"></i>
+                <span v-if="!sidebarCollapsed">Departments</span>
+              </router-link>
+            </li>
+
+            <!-- ITGC Modules -->
+            <li class="nav-header" v-if="!sidebarCollapsed">
+              <small class="text-muted">ITGC MODULES</small>
+            </li>
+            <li class="nav-item">
+              <router-link to="/access-requests" class="nav-link" active-class="active">
+                <i class="bi bi-key me-2"></i>
+                <span v-if="!sidebarCollapsed">Access Requests</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/change-requests" class="nav-link" active-class="active">
+                <i class="bi bi-git me-2"></i>
+                <span v-if="!sidebarCollapsed">Change Requests</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/backup-logs" class="nav-link" active-class="active">
+                <i class="bi bi-database me-2"></i>
+                <span v-if="!sidebarCollapsed">Backup & Recovery</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/it-assets" class="nav-link" active-class="active">
+                <i class="bi bi-laptop me-2"></i>
+                <span v-if="!sidebarCollapsed">IT Assets</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/usb-loans" class="nav-link" active-class="active">
+                <i class="bi bi-usb-drive me-2"></i>
+                <span v-if="!sidebarCollapsed">Peminjaman USB</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/audit-logs" class="nav-link" active-class="active">
+                <i class="bi bi-clipboard-data me-2"></i>
+                <span v-if="!sidebarCollapsed">Audit Logs</span>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <router-view />
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="text-center text-muted">
+          <small>&copy; {{ new Date().getFullYear() }} ITGC System. All rights reserved.</small>
+        </div>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import authService from '@/services/authService'
+
+const router = useRouter()
+const sidebarCollapsed = ref(false)
+const user = ref(null)
+
+const toggleSidebar = () => {
+  sidebarCollapsed.value = !sidebarCollapsed.value
+}
+
+const handleLogout = async () => {
+  await authService.logout()
+  router.push('/auth/login')
+}
+
+onMounted(() => {
+  user.value = authService.getUser()
+})
+</script>
