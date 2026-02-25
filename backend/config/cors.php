@@ -6,7 +6,8 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:5173')],
+    // Only allow same-origin by default; override with FRONTEND_URL if needed.
+    'allowed_origins' => [env('FRONTEND_URL', env('APP_URL', 'http://localhost'))],
 
     'allowed_origins_patterns' => [],
 
