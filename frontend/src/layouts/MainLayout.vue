@@ -373,7 +373,7 @@ watch(
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 999;
-  font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
 }
 
 .sidebar.collapsed {
@@ -410,7 +410,7 @@ watch(
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.6rem;
-  font-family: "IBM Plex Mono", "Segoe UI", Arial, sans-serif;
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
 }
 
 .sidebar-toggle {
@@ -468,7 +468,7 @@ watch(
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: var(--d365-transition);
-  font-family: "IBM Plex Mono", "Segoe UI", Arial, sans-serif;
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
 }
 
 .nav-group-toggle:hover {

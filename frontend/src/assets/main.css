@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
 
 :root {
@@ -34,7 +34,7 @@
 }
 
 body {
-  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
   color: var(--text-dark);
   background: radial-gradient(circle at top right, #eceff3, #f6f7f9 50%);
   font-size: 12px;
@@ -56,7 +56,7 @@ textarea,
 .card,
 .dropdown-menu,
 .dropdown-item {
-  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
 }
 
 a {
